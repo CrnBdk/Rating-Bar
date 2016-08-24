@@ -55,7 +55,8 @@
      $(".mytab").append('<td id="light-'+i+'"></td><div id="textBar-'+i+'"></div>');
      $("#light-" + i).hover(myfun);
      $("#textBar-"+ i).hover(myfun);
-    
+     
+   
   } 
 
   function myfun(e) {
@@ -63,7 +64,7 @@
     var colorCode = id < 3 ? '#FF0000' : (id < 7 ? '#FFD700': '#32DC32');
     var textbar = id < 3 ? "BAD" : (id < 7 ? "NOT BAD" : "GOOD");
     $("#textBar").text(textbar);
- 
+
     
     for (var i = 0; i < userInput; i++) {
       if (i <= id) $("#light-" + i).css({ "background-color": colorCode });
