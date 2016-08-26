@@ -61,7 +61,7 @@
   function myfun(e) {
     var id = e.target.id.split('-')[1];
     var colorCode = id < 3 ? '#FF0000' : (id < 7 ? '#FFD700': '#32DC32');
-    var textbar = id < 3 ? "BAD" : (id < 7 ? "NOT BADz" : "GOOD");
+    var textbar = id < 3 ? "BAD" : (id < 7 ? "NOT BAD" : "GOOD");
     $("#textBar").text(textbar);
 
     
