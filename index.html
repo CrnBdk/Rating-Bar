@@ -43,7 +43,7 @@
 
   JFCustomWidget.subscribe("submit", function() {
       var result = {value:"", valid: false};
-      result.value = document.getElementById("textBar").value;
+      result.value = $('#textBar').text();
       result.valid = true;
       JFCustomWidget.sendSubmit(result);
     });
@@ -51,7 +51,7 @@
 
   var userInput= 10;
   for(var i = 0; i < userInput; i++){
-     $(".mytab").append('<td id="light-'+i+'" onclick="myfunc()"></td><div id="textBar-'+i+'"></div>');
+     $(".mytab").append('<td id="light-'+i+'" onclick="myfunc(this)"></td><div id="textBar-'+i+'"></div>');
      $("#light-" + i).hover(myfun);
      $("#textBar-"+ i).hover(myfun);
      
@@ -71,9 +71,6 @@
     
   }
   
-  function myfunc(){
-    document.getElementById("light").onclick= "Hello World";
-  }
 
 
 /*$(document).on("click", ".bar", function (e) {
