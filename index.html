@@ -29,9 +29,9 @@
 <body>
   <table class="table" id="tab" cellpadding="0" cellspacing="1">
     <tbody class="tbody" id="t">
-      <tr class="mytab" id="x" style="cursor: pointer">  
+      <tr class="mytab" id="x" style="cursor: pointer" onclick="myfunc">  
    
-        <div id="textBar" selected="selected"></div>
+        <div class="bar" id="textBar" ></div>
       </tr>
     </tbody>
   </table>
@@ -43,7 +43,7 @@
 
   JFCustomWidget.subscribe("submit", function() {
       var result = {value:"", valid: false};
-      result.value = document.getElementById("textBar").value + $("#textBar").text(textbar);
+      result.value = document.getElementById("textBar").value ;
       result.valid = true;
    
       JFCustomWidget.sendSubmit(result);
@@ -52,7 +52,7 @@
 
   var userInput= 10;
   for(var i = 0; i < userInput; i++){
-     $(".mytab").append('<td id="light-'+i+'"></td><div id="textBar-'+i+'"></div>');
+     $(".mytab").append('<td id="light-'+i+'" onclick="myfunc()"></td><div id="textBar-'+i+'"></div>');
      $("#light-" + i).hover(myfun);
      $("#textBar-"+ i).hover(myfun);
      
@@ -73,15 +73,36 @@
     }
     
   }
-$( "select" )
-  .change(function() {
-    var str = "";
-    $( "select option:selected" ).each(function() {
-      str += $( this ).text() + " ";
-    });
-    $( "div" ).text( str );
-  })
-  .trigger( "change" );
+  
+  function myfunc(){
+    document.getElementById("light").onclick= "Hello World";
+  }
+
+
+/*$(document).on("click", ".bar", function (e) {
+
+    $(".bar").removeAttr("data-selected");
+
+    var $this = $(this);
+    $this.nextAll(".bar").removeClass("rated");
+    $this.addClass("rated").attr("data-selected", "true");
+    $this.prevAll(".bar").addClass("rated");
+});
+
+$(document).on("mouseover", ".bar", function (e) {
+
+    $(".star").removeClass("rated");
+    var $this = $(this);
+    $(this).addClass("hover");
+    $this.prevAll(".bar").addClass("hover");
+});
+
+$(document).on("mouseout", ".bar", function (e) {
+    $(".bar").removeClass("hover");
+    $("[data-selected='true']").addClass("rated").prevAll(".bar").addClass("rated");
+});
+*/
+
       
   </script>
 </body>
